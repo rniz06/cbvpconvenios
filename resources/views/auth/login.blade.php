@@ -120,10 +120,18 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-warning">
             <div class="card-header text-center">
-                <a href="../../index2.html" class="h1"><b>CBVP</b> CONVENIOS</a>
+                <a href="/" class="h1 text-dark"><b>CBVP</b> CONVENIOS</a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Ingresa tus credenciales de acceso</p>
+
+                @error('error')
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h5><i class="icon fas fa-ban"></i>{{ $message }}</h5>
+                    </div>
+                @else
+                    <p class="login-box-msg">Ingresa tus credenciales de acceso</p>
+                @enderror
 
                 <form action="{{ route('auth.login') }}" method="post">
                     @csrf
@@ -166,22 +174,9 @@
                     </div>
                 </form>
 
-                {{-- <div class="social-auth-links text-center mt-2 mb-3">
-                    <a href="#" class="btn btn-block btn-primary">
-                        <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-                    </a>
-                    <a href="#" class="btn btn-block btn-danger">
-                        <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-                    </a>
-                </div> --}}
-                <!-- /.social-auth-links -->
-
                 <p class="mb-1">
                     <a href="forgot-password.html" class="text-dark">Olvidó su contraseña?</a>
                 </p>
-                {{-- <p class="mb-0">
-                    <a href="register.html" class="text-center">Register a new membership</a>
-                </p> --}}
             </div>
             <!-- /.card-body -->
         </div>

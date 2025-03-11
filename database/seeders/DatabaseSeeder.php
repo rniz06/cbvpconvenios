@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::create([
-            'personal_id' => 19006,
+            'personal_id' => 8526,
             'email' => 'mmeza@cbvp.org.py',
             'password' => Hash::make('Rann2006')
         ]);
