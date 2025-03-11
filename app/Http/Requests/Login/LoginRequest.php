@@ -23,7 +23,21 @@ class LoginRequest extends FormRequest
     {
         return [
             'usuario' => 'required',
-            'password' => 'required|min:8'
+            'password' => 'required|min:8',
+        ];
+    }
+
+    /**
+     * Personalizar el mensaje de error segun el campo.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'usuario.required' => 'Usuario requerido.',
+            'password.required' => 'Contraseña requerida.',
+            'password.min' => 'Al menos 8 caracteres',
         ];
     }
 }

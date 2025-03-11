@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name') }} - Login</title>
 
+    <link rel="shortcut icon" href="{{ asset('img/cbvp-logo.webp') }}" type="image/x-icon">
+
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -136,36 +138,41 @@
                 <form action="{{ route('auth.login') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="text" name="usuario" class="form-control" placeholder="Codigo O Correo...">
+                        <input type="text" name="usuario" class="form-control" value="{{ old('usuario') }}" placeholder="Codigo O Correo..." @required(true)>
+
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
                             </div>
                         </div>
-                        @error('usuario')
-                            <span>{{ $message }}</span>
-                        @enderror
                     </div>
+                    @error('usuario')
+                        <span class="text-danger">* {{ $message }}</span>
+                    @enderror
                     <div class="input-group mb-3">
-                        <input type="password" name="password" class="form-control" placeholder="Contraseña">
+                        <input type="password" name="password" class="form-control" value="{{ old('password') }}" placeholder="Contraseña" @required(true)>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
-                        @error('password')
-                            <span>{{ $message }}</span>
-                        @enderror
+
                     </div>
+                    @error('password')
+                        <span class="text-danger">* {{ $message }}</span>
+                    @enderror
                     <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">
-                                <input type="checkbox" name="remenber" id="remember">
+                                <input type="checkbox" name="recordarme">
                                 <label for="remember">
                                     Recordarme
                                 </label>
                             </div>
                         </div>
+                        @error('recordarme')
+                        <span class="text-danger">* {{ $message }}</span>
+                    @enderror
                         <!-- /.col -->
                         <div class="col-4">
                             <button type="submit" class="btn btn-warning btn-block">Ingresar</button>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Login\LoginRequest;
 use App\Models\Vistas\VtUsuario;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,7 @@ class LoginController extends Controller
         }
 
         return back()->withErrors(['error' => 'Credenciales inválidas']);
-        // return dd($campo, $request);
+        //return dd($request);
 
     }
 
