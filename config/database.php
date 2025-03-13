@@ -62,6 +62,36 @@ return [
             ]) : [],
         ],
 
+        'db_companias' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST_COMPANIAS', '127.0.0.1'),
+            'port' => env('DB_PORT_COMPANIAS', '3306'),
+            'database' => env('DB_DATABASE_COMPANIAS', 'forge'),
+            'username' => env('DB_USERNAME_COMPANIAS', 'forge'),
+            'password' => env('DB_PASSWORD_COMPANIAS', ''),
+            'charset' => env('DB_CHARSET', 'utf8mb4'),
+            'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                \PDO::ATTR_EMULATE_PREPARES => true
+            ]) : [],
+            // ...
+        ],
+
+        'db_personal' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST_PERSONAL', '127.0.0.1'),
+            'port' => env('DB_PORT_PERSONAL', '3306'),
+            'database' => env('DB_DATABASE_PERSONAL', 'forge'),
+            'username' => env('DB_USERNAME_PERSONAL', 'forge'),
+            'password' => env('DB_PASSWORD_PERSONAL', ''),
+            'charset' => env('DB_CHARSET', 'utf8mb4'),
+            'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                \PDO::ATTR_EMULATE_PREPARES => true
+            ]) : [],
+            // ...
+        ],
+
         'mariadb' => [
             'driver' => 'mariadb',
             'url' => env('DB_URL'),

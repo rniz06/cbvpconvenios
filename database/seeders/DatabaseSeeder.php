@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Institucion;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -20,6 +21,12 @@ class DatabaseSeeder extends Seeder
             'personal_id' => 8526,
             'email' => 'mmeza@cbvp.org.py',
             'password' => Hash::make('Rann2006')
+        ]);
+
+        $this->call([
+            ConvenioEstadoSeeder::class,
+            InstitucionSeeder::class,
+            //CommentSeeder::class,
         ]);
     }
 }
